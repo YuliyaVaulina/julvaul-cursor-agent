@@ -965,8 +965,29 @@
   @media (max-width: 720px) {
     .founders-grid { grid-template-columns: 1fr; }
     .collab-resources { grid-template-columns: 1fr; }
-    .collab-grid   { grid-template-columns: 1fr; }
-    .collab-arrow  { transform: rotate(90deg); }
+    .collab-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .collab-arrow {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      border-radius: 50%;
+      background: rgba(99, 102, 241, 0.08);
+      font-size: 0;
+      line-height: 1;
+      transform: none;
+    }
+    .collab-arrow::before {
+      content: "↓";
+      color: #6366f1;
+      font-size: 24px;
+      line-height: 1;
+    }
   }
 
     @media (max-width: 900px) {
@@ -1092,7 +1113,26 @@
         </div>
       </div>
     </section>
-
+    <section>
+        <div class="wide-note glass-card">
+          <div class="wide-note-inner wide-note-inner--single">
+            <div>
+              <div class="pill" style="background: #fff7ed; color: #ea580c;"><i class="ph ph-video-camera"></i> Камера, GitHub и локация</div>
+              <h2 class="section-title">С форматом записи на «ты»</h2>
+              <p style="margin-top: 16px;">
+                Есть опыт стримов: про то, как я разрабатывала нейростримера на Unreal Engine + Audio2Face и про нейросети в целом. К записи и live-формату готова.
+              </p>
+              <p style="margin-top: 16px;">
+                GitHub в основном приватный из-за коммерческих проектов и NDA, но готова показать код любого проекта под NDA или провести walkthrough на созвоне.
+              </p>
+              <p style="margin-top: 16px;">
+                Локация: Калининград
+              </p>
+            </div>
+  
+          </div>
+        </div>
+      </section>
     <section>
       <div class="section-head">
         <span class="section-kicker">Коммерческий опыт</span>
@@ -1223,27 +1263,9 @@
     </section>
 
     <section>
-      <div class="wide-note glass-card">
-        <div class="wide-note-inner wide-note-inner--single">
-          <div>
-            <div class="pill" style="background: #fff7ed; color: #ea580c;"><i class="ph ph-video-camera"></i> Камера и GitHub</div>
-            <h2 class="section-title">С форматом записи на «ты»</h2>
-            <p style="margin-top: 16px;">
-              Есть опыт стримов: про то, как я разрабатывала нейростримера на Unreal Engine + Audio2Face и про нейросети в целом. К записи и live-формату готова.
-            </p>
-            <p style="margin-top: 16px;">
-              GitHub в основном приватный из-за коммерческих проектов и NDA, но готова показать код любого проекта под NDA или провести walkthrough на созвоне.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section>
         <div class="section-head">
           <span class="section-kicker">Идея для коллаборации</span>
-          <h2>NeuroGate × твой проект</h2>
+          <h2>NeuroGate × Ваш проект</h2>
           <p>Параллельно с основной работой мы с партнёром <strong>Максимом Соловьёвым</strong> развиваем компанию <strong>NeuroGate</strong>, в то числе обучаем бизнес и сотрудников работе с AI, делаем кастомные автоматизации и агентов под задачи клиентов. Направление пересекается с вакансией, и здесь, как мне кажется, возможна не конкуренция, а взаимовыгодный обмен.</p>
         </div>
       
