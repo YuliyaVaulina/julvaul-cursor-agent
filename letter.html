@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Юлия Ваулина — AI/ML Developer & Vibecoder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #faf9f8;
+      --paper: rgba(255, 255, 255, 0.72);
+      --paper-strong: rgba(255, 255, 255, 0.9);
+      --ink: #1e293b;
+      --text: #475569;
+      --muted: #8a94a6;
+      --line: rgba(234, 221, 215, 0.72);
+      --brand-50: #fdf8f6;
+      --brand-100: #f2e8e5;
+      --brand-200: #eaddd7;
+      --brand-300: #e0cec7;
+      --brand-500: #a37c6e;
+      --brand-600: #8b6558;
+      --brand-800: #5c4038;
+      --lavender: #f4f1fa;
+      --lavender-dark: #9d87d6;
+      --pink: #fdf2f8;
+      --pink-dark: #f472b6;
+      --blue: #eff6ff;
+      --blue-dark: #3b82f6;
+      --mint: #ecfdf5;
+      --mint-dark: #10b981;
+      --amber: #fffbeb;
+      --amber-dark: #f59e0b;
+      --shadow: 0 18px 60px rgba(30, 41, 59, 0.07);
+      --shadow-soft: 0 4px 30px rgba(30, 41, 59, 0.04);
+      --radius-xl: 40px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+    }
+
+    html {
+      background: #2e2e2e;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .bg-blobs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(100px);
+      mix-blend-mode: multiply;
+      opacity: 0.72;
+      animation: blob 8s infinite ease-in-out;
+    }
+
+    .blob-one {
+      top: -12%;
+      left: -10%;
+      width: 42vw;
+      height: 42vw;
+      background: rgba(216, 180, 254, 0.45);
+    }
+
+    .blob-two {
+      top: 18%;
+      right: -8%;
+      width: 36vw;
+      height: 36vw;
+      background: rgba(251, 207, 232, 0.5);
+      animation-delay: 2s;
+    }
+
+    .blob-three {
+      bottom: -15%;
+      left: 22%;
+      width: 44vw;
+      height: 44vw;
+      background: rgba(219, 234, 254, 0.62);
+      animation-delay: 4s;
+    }
+
+    @keyframes blob {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(28px, -38px) scale(1.08); }
+      66% { transform: translate(-20px, 22px) scale(0.94); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      padding: 64px 24px 88px;
+    }
+
+    .serif {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: var(--shadow-soft);
+      color: var(--brand-600);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      margin-bottom: 92px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin-top: 28px;
+      color: var(--ink);
+      font-size: clamp(48px, 8vw, 82px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin-top: 22px;
+      color: #64748b;
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 300;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--brand-600), var(--lavender-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .quote-card {
+      position: relative;
+      max-width: 760px;
+      margin: 42px auto 0;
+      padding: 34px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .quote-card::after {
+      content: "“";
+      position: absolute;
+      top: -36px;
+      right: 28px;
+      color: var(--brand-200);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 144px;
+      line-height: 1;
+      opacity: 0.72;
+    }
+
+    .quote-card p {
+      position: relative;
+      z-index: 1;
+      color: #556274;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .glass-card,
+    .glass-panel {
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.52));
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      margin-bottom: 92px;
+    }
+
+    .section-head {
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--brand-500);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2,
+    .section-title {
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin: 16px auto 0;
+      color: #64748b;
+      font-size: 17px;
+    }
+
+    .flagship {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 40px;
+    }
+
+    .flagship::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .flagship-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--lavender);
+      color: var(--lavender-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .flagship h3 {
+      margin-bottom: 16px;
+      color: var(--ink);
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .flagship p {
+      margin-bottom: 22px;
+      color: #566579;
+      font-size: 16.5px;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-600);
+      font-weight: 600;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      min-height: 138px;
+      padding: 24px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.62);
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stat i {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .stat-value {
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      margin-top: 6px;
+      color: #748096;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .preview {
+      grid-column: span 2;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 26px;
+      background: var(--brand-50);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .preview img {
+      width: 100%;
+      height: 260px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      grid-column: span 2;
+      overflow: hidden;
+      min-height: 100%;
+      padding: 0;
+      border-radius: 28px;
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+    }
+
+    .projects .project:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    .projects .project:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 48px rgba(30, 41, 59, 0.08);
+    }
+
+    .icon-box {
+      display: flex;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 22px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 28px;
+    }
+
+    .project-shot {
+      position: relative;
+      overflow: hidden;
+      height: 190px;
+      border-bottom: 1px solid rgba(234, 221, 215, 0.62);
+      background: rgba(255, 255, 255, 0.54);
+    }
+
+    .project-shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(255, 255, 255, 0.18));
+      pointer-events: none;
+    }
+
+    .project-shot img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .project:hover .project-shot img {
+      transform: scale(1.035);
+    }
+
+    .project-body {
+      padding: 24px 26px 26px;
+    }
+
+    .project-text {
+      padding: 28px;
+    }
+
+    .project h3 {
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .project p {
+      color: #5d6a7d;
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .project .result {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--brand-600);
+      font-weight: 600;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .two-col > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 26px;
+      flex: 1;
+      align-content: end;
+    }
+
+    .tool {
+      position: relative;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      overflow: hidden;
+      padding: 22px;
+      border-radius: 22px;
+    }
+
+    .tool::after {
+      content: "";
+      position: absolute;
+      top: -48px;
+      right: -36px;
+      width: 128px;
+      height: 128px;
+      border-radius: 999px;
+      background: rgba(219, 234, 254, 0.66);
+      filter: blur(28px);
+      opacity: 0.7;
+    }
+
+    .tool:nth-child(2)::after {
+      background: rgba(243, 232, 255, 0.72);
+    }
+
+    .tool:nth-child(3)::after {
+      background: rgba(252, 231, 243, 0.72);
+    }
+
+    .tool-icon {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      box-shadow: var(--shadow-soft);
+      font-size: 26px;
+    }
+
+    .tool-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tool-label {
+      color: #7a8497;
+      font-size: 13px;
+    }
+
+    .tool-name {
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .tool-note {
+      color: var(--brand-600);
+      font-weight: 600;
+    }
+
+    .workflow {
+      padding: 34px;
+      border-radius: 30px;
+    }
+
+    .workflow h3 {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 28px;
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .steps {
+      margin-left: 10px;
+      padding-left: 28px;
+      border-left: 1px solid var(--brand-200);
+    }
+
+    .step {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: -39px;
+      width: 19px;
+      height: 19px;
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      background: var(--brand-400, #d2bab0);
+      box-shadow: 0 0 0 1px rgba(224, 206, 199, 0.7);
+    }
+
+    .step:nth-child(2)::before { background: var(--lavender-dark); }
+    .step:nth-child(3)::before { background: var(--pink-dark); }
+    .step:nth-child(4)::before { background: var(--brand-600); }
+
+    .step h4 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #5c687a;
+      font-size: 14.5px;
+    }
+
+    .agent-note {
+      margin-top: 18px;
+      padding: 24px 26px;
+      border-radius: 26px;
+      flex: 1;
+      background:
+        radial-gradient(circle at top right, rgba(157, 135, 214, 0.16), transparent 11rem),
+        rgba(255, 255, 255, 0.62);
+    }
+
+    .agent-note h3 {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .agent-note p {
+      color: #5c687a;
+      font-size: 15px;
+      line-height: 1.62;
+    }
+
+    .wide-note {
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 6px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.68), rgba(253, 248, 246, 0.72));
+    }
+
+    .wide-note-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      padding: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.44);
+      backdrop-filter: blur(12px);
+    }
+
+    .wide-note-inner--single {
+      grid-template-columns: 1fr;
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .format {
+      min-height: 164px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .format-num {
+      display: flex;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 14px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--brand-600);
+      color: white;
+      font-weight: 700;
+    }
+
+    .format h3 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .format p {
+      color: #5b687a;
+      font-size: 14.5px;
+    }
+
+    .proofs {
+      padding: 28px;
+      border-radius: 28px;
+    }
+
+    .proofs p {
+      color: #5d6879;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .contact {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 18px;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #334155;
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact:hover {
+      transform: translateY(-2px);
+      border-color: var(--brand-300);
+      color: var(--brand-600);
+    }
+
+    footer {
+      padding-top: 44px;
+      border-top: 1px solid rgba(234, 221, 215, 0.72);
+      text-align: center;
+    }
+
+    footer h2 {
+      margin-bottom: 14px;
+      color: var(--ink);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 31px;
+      font-weight: 500;
+    }
+
+    footer p {
+      color: #8a94a6;
+      font-size: 14px;
+    }
+
+/* === Founders === */
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+  
+  .founder {
+    text-align: center;
+    padding: 32px 24px;
+  }
+  
+  .founder h3 {
+    margin: 16px 0 4px;
+    font-size: 20px;
+  }
+  
+  .founder-role {
+    display: inline-block;
+    font-size: 13px;
+    color: #6366f1;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  
+  .founder p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  
+  .founder-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.03em;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .founder-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .founder-avatar--me  { background: linear-gradient(135deg, #818cf8, #6366f1); }
+  .founder-avatar--max { background: linear-gradient(135deg, #f472b6, #8b5cf6); }
+
+  .collab-resources {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .resource-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 190px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.58);
+    color: var(--text);
+    text-align: left;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(157, 135, 214, 0.38);
+    box-shadow: 0 18px 48px rgba(30, 41, 59, 0.08);
+  }
+
+  .resource-card::after {
+    content: "";
+    position: absolute;
+    right: -42px;
+    top: -42px;
+    width: 128px;
+    height: 128px;
+    border-radius: 999px;
+    background: rgba(216, 180, 254, 0.32);
+    filter: blur(18px);
+  }
+
+  .resource-card:nth-child(2)::after {
+    background: rgba(251, 207, 232, 0.34);
+  }
+
+  .resource-card:nth-child(3)::after {
+    background: rgba(219, 234, 254, 0.46);
+  }
+
+  .resource-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--brand-600);
+    font-size: 24px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .resource-card h4,
+  .resource-card p,
+  .resource-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  .resource-card h4 {
+    margin-bottom: 8px;
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .resource-card p {
+    margin: 0 0 14px;
+    color: #5d6879;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--brand-600);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  /* === Collab block === */
+  .collab-block {
+    margin-top: 32px;
+    padding: 36px;
+    text-align: center;
+  }
+  
+  .collab-block h3 {
+    margin: 8px 0 28px;
+    font-size: 22px;
+  }
+  
+  .collab-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .collab-side {
+    background: rgba(99, 102, 241, 0.04);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    border-radius: 16px;
+    padding: 20px 22px;
+  }
+  
+  .collab-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6366f1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  
+  .collab-side p {
+    margin: 0;
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  
+  .collab-arrow {
+    font-size: 32px;
+    color: #6366f1;
+    font-weight: 300;
+  }
+  
+  @media (max-width: 720px) {
+    .founders-grid { grid-template-columns: 1fr; }
+    .collab-resources { grid-template-columns: 1fr; }
+    .collab-grid   { grid-template-columns: 1fr; }
+    .collab-arrow  { transform: rotate(90deg); }
+  }
+
+    @media (max-width: 900px) {
+      .page {
+        padding-top: 44px;
+      }
+
+      .hero,
+      section {
+        margin-bottom: 64px;
+      }
+
+      .flagship-inner,
+      .two-col,
+      .wide-note-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project,
+      .projects .project:nth-child(4),
+      .projects .project:nth-child(5) {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 34px 16px 64px;
+      }
+
+      .quote-card,
+      .flagship,
+      .workflow,
+      .wide-note-inner,
+      .proofs {
+        padding: 24px;
+        border-radius: 26px;
+      }
+
+      .projects,
+      .stats,
+      .format-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview {
+        grid-column: auto;
+      }
+
+      .preview img {
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blobs">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">Резюме / сопроводительное письмо</div>
+      <h1 class="serif">Юлия Ваулина</h1>
+      <p class="subtitle">Python AI/ML Developer <span style="color: var(--brand-300); margin: 0 10px;">|</span> <span class="gradient-text">Vibecoder</span></p>
+
+      <div class="quote-card glass-panel">
+        <p>
+          Коллеги, приветсвую! Я выпускница вашего практикума по пет-проектам и как раз на нём собрала свой текущий продукт <strong>NeuroGate</strong>. Откликаюсь на позицию вайбкодера, потому что это очень близко к тому, что я делаю каждый день: проектирую AI-продукты, собираю агентов, автоматизирую процессы и довожу идеи до работающего продакшена.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-head">
+        <span class="section-kicker">Флагманский проект</span>
+        <h2>NeuroGate: собственный SaaS с живыми пользователями</h2>
+        <p>85+ AI-моделей, рублёвая оплата, СБП, API, каталог моделей и личные агенты. Всё сделано мной от пустой директории до деплоя, биллинга, эквайринга, лендинга и контента.</p>
+      </div>
+
+      <div class="flagship glass-card">
+        <div class="flagship-inner">
+          <div>
+            <div class="pill"><i class="ph ph-sparkle"></i> Pet project, который вырос в продукт</div>
+            <h3>Единый шлюз к AI-моделям</h3>
+            <p>
+              NeuroGate можно потрогать вживую: это не демо и не лендинг без продукта, а работающий сервис с оплатами, API и реальными пользователями.
+            </p>
+            <a class="link" href="https://ng-ai.ru" target="_blank" rel="noreferrer">Открыть ng-ai.ru <i class="ph ph-arrow-right"></i></a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <i class="ph ph-cpu" style="color: var(--lavender-dark);"></i>
+              <div class="stat-value">85+</div>
+              <div class="stat-label">моделей</div>
+            </div>
+            <div class="stat">
+              <i class="ph ph-users" style="color: var(--pink-dark);"></i>
+              <div class="stat-value">382</div>
+              <div class="stat-label">пользователя</div>
+            </div>
+            <div class="stat">
+              <i class="ph ph-coin-vertical" style="color: var(--brand-500);"></i>
+              <div class="stat-value">~51K</div>
+              <div class="stat-label">оплат, ₽</div>
+            </div>
+            <div class="stat">
+              <i class="ph ph-briefcase" style="color: var(--mint-dark);"></i>
+              <div class="stat-value">44.3K</div>
+              <div class="stat-label">B2B, ₽</div>
+            </div>
+            <div class="preview">
+              <img src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fng-ai.ru?w=1200" alt="Скриншот NeuroGate">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="section-kicker">Коммерческий опыт</span>
+        <h2>Unisender и AI-инициативы</h2>
+        <p>Сейчас я Python AI/ML Developer в Unisender и де-факто тимлид AI-направления. Вела продукты, RAG, агентов, API, интеграции и автоматизации с измеримым бизнес-эффектом.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project glass-card">
+          <div class="project-shot">
+            <img src="https://storage.yandexcloud.net/neurogate/%D0%B0%D1%81%D1%8F.png" alt="Скриншот продукта Ася">
+          </div>
+          <div class="project-body">
+            <h3>Ася</h3>
+            <p>Мультиагентный ассистент на FastAPI + Next.js: tool calling, RAG, мультимодальность, голос, изображения, документы, интеграции с календарями, почтой, биллингом и Telegram Mini App.</p>
+            <p class="result"><a href="https://asya.unisender.com" target="_blank" rel="noreferrer">asya.unisender.com</a></p>
+          </div>
+        </article>
+
+        <article class="project glass-card">
+          <div class="project-shot">
+            <img src="https://storage.yandexcloud.net/neurogate/%D0%BA%D0%B0%D0%BC%D0%BF.png" alt="Скриншот Campaign Dashboard">
+          </div>
+          <div class="project-body">
+            <h3>Campaign Dashboard</h3>
+            <p>AI-диагностика маркетингового кабинета: анализ доменов, базы, автоматизаций, скриншотов писем через Vision-модель и автоэкспорт в Google Docs.</p>
+            <p class="result">Аудит сократился с нескольких часов до 5 минут.</p>
+          </div>
+        </article>
+
+        <article class="project glass-card">
+          <div class="project-shot">
+            <img src="https://storage.yandexcloud.net/neurogate/%D1%81%D0%B0%D0%BF%D0%BF%D0%BE%D1%80%D1%82.png" alt="Скриншот AI Support">
+          </div>
+          <div class="project-body">
+            <h3>AI Support</h3>
+            <p>RAG-бот клиентской поддержки с гибридным поиском lexical + vector в OpenSearch, sliding window истории, rolling summarization и streaming через SSE.</p>
+          </div>
+        </article>
+
+        <article class="project glass-card">
+          <div class="project-shot">
+            <img src="https://storage.yandexcloud.net/neurogate/%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE.png" alt="Скриншот Qualix">
+          </div>
+          <div class="project-body">
+            <h3>Qualix</h3>
+            <p>AI-платформа оценки качества клиентской поддержки: оценка диалогов по критериям, DSAT-аналитика, RAG по похожим кейсам, AI-коучинг и ночная batch-обработка.</p>
+          </div>
+        </article>
+
+        <article class="project glass-card">
+          <div class="project-shot">
+            <img src="https://storage.yandexcloud.net/neurogate/%D0%B1%D0%BE%D1%82.png" alt="Скриншот AI HR Assistant">
+          </div>
+          <div class="project-body">
+            <h3>AI HR Assistant</h3>
+            <p>HR-бот в корпоративном мессенджере: RAG по базе знаний, онбординг, оффбординг, эскалация в HR-чат, sync статей через MyTeam API и гибридный поиск.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <span class="section-kicker">Профиль вайбкодера</span>
+        <h2 class="section-title">LLM — мой основной рабочий инструмент</h2>
+        <p style="margin-top: 14px; color: #64748b;">Я не просто иногда открываю чат с моделью. У меня выстроен постоянный AI-assisted workflow: ресерч, планирование, генерация, ревью, тесты, агенты и автоматические проверки.</p>
+
+        <div class="tool-list">
+          <div class="tool glass-card">
+            <div class="tool-icon"><i class="ph-fill ph-code-block"></i></div>
+            <div class="tool-body">
+              <div class="tool-label">IDE и кодогенерация</div>
+              <div class="tool-name">Cursor</div>
+              <div class="tool-note">2 аккаунта, примерно $80 / месяц</div>
+            </div>
+          </div>
+
+          <div class="tool glass-card">
+            <div class="tool-icon"><i class="ph-fill ph-brain"></i></div>
+            <div class="tool-body">
+              <div class="tool-label">Исследования и промпты</div>
+              <div class="tool-name">Poe Platform</div>
+              <div class="tool-note">2.5M токенов / месяц</div>
+            </div>
+          </div>
+
+          <div class="tool glass-card">
+            <div class="tool-icon"><i class="ph ph-sparkle"></i></div>
+            <div class="tool-body">
+              <div class="tool-label">Прототипы и ревью</div>
+              <div class="tool-name">Claude Code, v0, Lovable</div>
+              <div class="tool-note">для рефакторингов, UI и быстрых лендингов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="workflow glass-panel">
+          <h3><i class="ph ph-git-branch" style="color: var(--brand-500);"></i> Рабочий процесс</h3>
+          <div class="steps">
+            <div class="step">
+              <h4>1. Ресерч и план</h4>
+              <p>Глубокий ресерч темы Opus'ом, декомпозиция задачи и подготовка плана перед исполнением.</p>
+            </div>
+            <div class="step">
+              <h4>2. Cursor-агенты</h4>
+              <p>План уходит агентам на реализацию. Для каждого проекта есть свои правила: стиль, архитектура и код-конвенции.</p>
+            </div>
+            <div class="step">
+              <h4>3. Хуки, тесты и ревью</h4>
+              <p>Pre/post-хуки запускают форматтер и тесты, а перед коммитом использую cross-family review моделью другого семейства.</p>
+            </div>
+            <div class="step">
+              <h4>4. TDD / SDD и интеграция</h4>
+              <p>Часто начинаю со спек и тестов, потом пишется функциональный код, полируется логика и собирается готовое решение.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-note glass-card">
+          <h3><i class="ph ph-robot" style="color: var(--lavender-dark);"></i> Личные агенты через NeuroGate API</h3>
+          <p>В CherryStudio через NeuroGate API крутятся мои личные агенты: SEO-агент по NeuroGate, аналитический агент, и агент-смотритель за релизами новых моделей, который сам добавляет их в каталог сервиса.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wide-note glass-card">
+        <div class="wide-note-inner wide-note-inner--single">
+          <div>
+            <div class="pill" style="background: #fff7ed; color: #ea580c;"><i class="ph ph-video-camera"></i> Камера и GitHub</div>
+            <h2 class="section-title">С форматом записи на «ты»</h2>
+            <p style="margin-top: 16px;">
+              Есть опыт стримов: про то, как я разрабатывала нейростримера на Unreal Engine + Audio2Face и про нейросети в целом. К записи и live-формату готова.
+            </p>
+            <p style="margin-top: 16px;">
+              GitHub в основном приватный из-за коммерческих проектов и NDA, но готова показать код любого проекта под NDA или провести walkthrough на созвоне.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+        <div class="section-head">
+          <span class="section-kicker">Идея для коллаборации</span>
+          <h2>NeuroGate × твой проект</h2>
+          <p>Параллельно с основной работой мы с партнёром <strong>Максимом Соловьёвым</strong> развиваем компанию <strong>NeuroGate</strong>, в то числе обучаем бизнес и сотрудников работе с AI, делаем кастомные автоматизации и агентов под задачи клиентов. Направление пересекается с вакансией, и здесь, как мне кажется, возможна не конкуренция, а взаимовыгодный обмен.</p>
+        </div>
+      
+        <div class="founders-grid">
+          <div class="founder glass-card">
+            <div class="founder-avatar founder-avatar--me">
+              <img src="https://storage.yandexcloud.net/neurogate/photo_2024-10-20_15-56-45.jpg" alt="Юлия Ваулина">
+            </div>
+            <h3>Юлия Ваулина</h3>
+            <span class="founder-role">Сооснователь NeuroGate · Разработчик · Vibe-coder</span>
+            <p>Разработчик Python AI/ML Developer в Unisender. До этого AgiLabs, Балтавтоматика, Херокрафт — везде AI-продукты, RAG, агенты, API. В коммерческой разработке 3+ года. В NeuroGate веду продуктовую разработку, собираю агентов и автоматизации под клиентов.</p>
+          </div>
+          <div class="founder glass-card">
+            <div class="founder-avatar founder-avatar--max">
+              <img src="https://storage.yandexcloud.net/neurogate/photo_2022-09-13_12-02-25.jpg" alt="Максим Соловьёв">
+            </div>
+            <h3>Максим Соловьёв</h3>
+            <span class="founder-role">Сооснователь NeuroGate · Предприниматель · Vibe-coder</span>
+            <p>Предприниматель, ex-CEO Unisender. Отвечает за упаковку программ, продажи и развитие B2B-направления. Сам активно вайбкодит: за 2.5 месяца через Claude Code прошёл 7.63B токенов, 61 сессия и 15 проектов.</p>
+          </div>
+        </div>
+
+        <div class="collab-resources">
+          <a class="resource-card" href="https://msolo.me/studio" target="_blank" rel="noreferrer">
+            <div class="resource-icon"><i class="ph ph-briefcase"></i></div>
+            <h4>Собранные кейсы и предложения</h4>
+            <p>Страница студии: что мы уже делали, какие AI-автоматизации запускаем и как упаковываем задачи для бизнеса.</p>
+            <span class="resource-link">msolo.me/studio <i class="ph ph-arrow-up-right"></i></span>
+          </a>
+
+          <a class="resource-card" href="https://msolo.me/ai-native-guide" target="_blank" rel="noreferrer">
+            <div class="resource-icon"><i class="ph ph-presentation-chart"></i></div>
+            <h4>AI-native гайд для предпринимателей</h4>
+            <p>Подготовленная презентация о том, как перестраивать компанию вокруг агентов, процессов и измеримых бизнес-метрик.</p>
+            <span class="resource-link">Открыть гайд <i class="ph ph-arrow-up-right"></i></span>
+          </a>
+
+          <a class="resource-card" href="https://msolo.me/vibecoding" target="_blank" rel="noreferrer">
+            <div class="resource-icon"><i class="ph ph-code"></i></div>
+            <h4>Макс тоже вайбкодер</h4>
+            <p>Разбор 2.5 месяцев работы с Claude Code: токены, проекты, агентный workflow и реальная скорость AI-assisted разработки.</p>
+            <span class="resource-link">Vibe Coding by the numbers <i class="ph ph-arrow-up-right"></i></span>
+          </a>
+        </div>
+      
+        <div class="collab-block glass-card">
+          <span class="section-kicker">Как это может работать</span>
+          <h3>Обмен ценностью, а не конкуренция</h3>
+          <div class="collab-grid">
+            <div class="collab-side">
+              <div class="collab-label">С нашей стороны</div>
+              <p>Подключаемся к твоему проекту как эксперты и со-авторы уроков: помогаем готовить и записывать материал, разбираем с учениками реальные кейсы вайбкодинга, агентов и SaaS изнутри — как практики, а не как спикеры по слайдам.</p>
+            </div>
+            <div class="collab-arrow" aria-hidden="true">⇄</div>
+            <div class="collab-side">
+              <div class="collab-label">Со стороны NeuroGate</div>
+              <p>Ваши студенты и выпускники получают доступ к сервису и продуктам NeuroGate на специальных условиях — как естественное продолжение обучения, где можно сразу применять навыки на реальных задачах бизнеса.</p>
+            </div>
+          </div>
+        </div>
+      
+        <p style="max-width: 760px; margin: 28px auto 0; text-align: center; color: #64748b;">
+          Это не КП и не «давайте продадим друг другу». В первую очередь я откликаюсь как кандидат — вакансия попадает в то, что я делаю каждый день. А коллаборация с NeuroGate — приятный бонус, если команде это интересно.
+        </p>
+      </section>
+
+    <footer>
+      <h2>Буду рада созвону</h2>
+      <p>Спасибо, что дочитали 💜</p>
+
+      <div class="contact-grid">
+        <a class="contact" href="https://t.me/jul_vaul" target="_blank" rel="noreferrer"><i class="ph ph-telegram-logo"></i> Telegram</a>
+        <a class="contact" href="mailto:yavaulina1988@yandex.ru"><i class="ph ph-envelope-simple"></i> yavaulina1988@yandex.ru</a>
+        <a class="contact" href="tel:+79212618405"><i class="ph ph-phone"></i> +7 (921) 261-84-05</a>
+        <a class="contact" href="https://ng-ai.ru" target="_blank" rel="noreferrer"><i class="ph ph-rocket-launch"></i> NeuroGate</a>
+        <a class="contact" href="https://ng-ai.ru/business" target="_blank" rel="noreferrer"><i class="ph ph-briefcase"></i> NeuroGate Business</a>
+      </div>
+
+      <p style="margin-top: 38px;">Юля Ваулина · AI/ML Developer & Vibecoder</p>
+    </footer>
+  </main>
+</body>
+</html>
